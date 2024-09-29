@@ -1,0 +1,35 @@
+CREATE TABLE Cliente(
+id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+nombre_autor VARCHAR(255) NOT NULL,
+apellido1 VARCHAR(255) NOT NULL,
+apellido2 VARCHAR(255) NOT NULL,
+email VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Categoria(
+id_categoria INT PRIMARY KEY AUTO_INCREMENT,
+nombre_categoria VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Producto(
+id_producto INT PRIMARY KEY AUTO_INCREMENT,
+id_categoria INT NOT NULL,
+FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)ON UPDATE CASCADE ON DELETE RESTRICT,
+nombre VARCHAR(255) NOT NULL,
+precio INT NOT NULL
+);
+
+CREATE TABLE Venta(
+id_venta INT PRIMARY KEY AUTO_INCREMENT,
+id_cliente INT NOT NULL,
+FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)ON UPDATE CASCADE ON DELETE RESTRICT,
+fecha_venta DATE
+);
+
+CREATE TABLE Detalle_venta(
+id_detalle INT PRIMARY KEY AUTO_INCREMENT,
+id_venta INT NOT NULL,
+FOREIGN KEY (id_venta) REFERENCES venta(id_venta)ON UPDATE CASCADE ON DELETE RESTRICT,
+id_producto INT NOT NULL,
+FOREIGN KEY (id_producto) REFERENCES producto(id_producto)ON UPDATE CASCADE ON DELETE RESTRICT
+);
