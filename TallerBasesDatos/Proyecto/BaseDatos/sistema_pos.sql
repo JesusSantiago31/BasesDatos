@@ -44,3 +44,17 @@ CREATE TABLE ventas (
     CONSTRAINT chk_total CHECK (total >= 0)         -- Total de ventas no negativo
     
 );
+
+-- Tabla de Tarjeta de Puntos
+CREATE TABLE tarjeta_puntos (
+    id_tarjeta INT AUTO_INCREMENT PRIMARY KEY,      -- Identificador unico
+    id_cliente INT UNIQUE,                                 -- Identificador enlazado al cliente
+    puntos_acumulados INT DEFAULT 0 NOT NULL,       -- Puntos acumulados inicializados en 0
+    fecha_ultima_actualizacion DATE,                -- Fecha de actualizacion de puntos
+    
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente) ON UPDATE CASCADE 
+    ON DELETE RESTRICT,
+    
+    -- Restricciones
+    CONSTRAINT chk_puntos_acumulados CHECK (puntos_acumulados >= 0) -- Verifica que los puntos sean mayor a 0
+);
