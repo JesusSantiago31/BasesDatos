@@ -28,3 +28,19 @@ CREATE TABLE productos (
     CONSTRAINT chk_precio CHECK (precio > 0),       -- Costrain para verificar que el recio del producto sea mayor a 0
     CONSTRAINT chk_stock CHECK (stock >= 0)         -- Constrain para verificar que el stock del producto sea mayor a 0
 );
+
+-- Tabla de Ventas
+CREATE TABLE ventas (
+    id_venta INT AUTO_INCREMENT PRIMARY KEY,        -- Identificador único
+    id_cliente INT,                                 -- Identificador enlazado al cliente
+    fecha_venta DATE NOT NULL,                      -- Fecha obligatoria, con valor por defecto actual
+    total DECIMAL(10,2) NOT NULL,                   -- Total de la venta obligatoria
+    descuento DECIMAL(10,2) DEFAULT '0.00',			-- Descuento inicializado en 0
+    
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente) ON UPDATE CASCADE 
+    ON DELETE RESTRICT,
+    
+    -- Restricciones adicionales
+    CONSTRAINT chk_total CHECK (total >= 0)         -- Total de ventas no negativo
+    
+);
