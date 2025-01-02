@@ -15,3 +15,16 @@ CREATE TABLE clientes (
     CONSTRAINT chk_nombre CHECK (CHAR_LENGTH(nombre) >= 3)  -- Constrain para la longitud del nombre
  
 );
+
+-- Tabla de Productos
+CREATE TABLE productos (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,     -- Identificador unico
+    nombre_producto VARCHAR(100) NOT NULL UNIQUE,   -- Nombre del producto
+    categoria_producto varchar(50) NOT NULL,
+    precio DECIMAL(10,2) NOT NULL,                  -- Precio del producto
+    stock INT NOT NULL DEFAULT 0,                   -- Stock del producto
+    imagen VARCHAR(255) NOT NULL,					-- Imagen del producto
+         
+    CONSTRAINT chk_precio CHECK (precio > 0),       -- Costrain para verificar que el recio del producto sea mayor a 0
+    CONSTRAINT chk_stock CHECK (stock >= 0)         -- Constrain para verificar que el stock del producto sea mayor a 0
+);
