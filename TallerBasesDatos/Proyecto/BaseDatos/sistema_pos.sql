@@ -58,3 +58,17 @@ CREATE TABLE tarjeta_puntos (
     -- Restricciones
     CONSTRAINT chk_puntos_acumulados CHECK (puntos_acumulados >= 0) -- Verifica que los puntos sean mayor a 0
 );
+
+CREATE TABLE detalle_ventas (
+    id_detalle INT AUTO_INCREMENT PRIMARY KEY, -- Identificador unico
+    id_venta INT NOT NULL,                     -- Identificador enlazado a la venta 
+    id_producto INT NOT NULL,                  -- Identificador enlazado a el producto
+    cantidad INT NOT NULL,                     -- Cantidad de productos
+    subtotal DECIMAL(10,2) NOT NULL,           -- Subtotal
+    -- Relaciones
+    FOREIGN KEY (id_venta) REFERENCES ventas(id_venta),
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto),
+    -- Restricciones
+    CONSTRAINT chk_cantidad CHECK (cantidad > 0), -- Verifica que la cantidad comprada sea mayor a 0 
+    CONSTRAINT chk_subtotal CHECK (subtotal >= 0) -- Verifica que el subtotal sea mayor a 0 
+);
