@@ -60,3 +60,24 @@ BEGIN
 END //
 DELIMITER ;
 
+
+DELIMITER //
+CREATE PROCEDURE ActualizarPrecioProducto(
+    IN p_id_producto INT, -- ID del producto a actualizar
+    IN p_nuevo_precio DECIMAL(10,2) -- Nuevo precio del producto
+)
+BEGIN
+    -- Manejar excepciones SQL
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+    BEGIN
+        SIGNAL SQLSTATE '45000' -- Generar un error personalizado
+        SET MESSAGE_TEXT = 'Error al actualizar el precio del producto.';
+    END;
+
+    -- Actualizar el precio del producto en la tabla 'productos'
+    UPDATE productos
+    SET precio = p_nuevo_precio
+    WHERE id_producto = p_id_producto; -- Filtrar por ID del producto
+END //
+DELIMITER ;
+
