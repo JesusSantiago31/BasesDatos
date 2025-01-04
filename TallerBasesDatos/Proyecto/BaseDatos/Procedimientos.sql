@@ -81,3 +81,23 @@ BEGIN
 END //
 DELIMITER ;
 
+
+-- 3. Consultar inventario bajo mínimos
+DELIMITER //
+CREATE PROCEDURE ConsultarInventarioBajo(
+    IN p_min_stock INT -- Cantidad mínima de stock para consultar
+)
+BEGIN
+    -- Manejar excepciones SQL
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+    BEGIN
+        SIGNAL SQLSTATE '45000' -- Generar un error personalizado
+        SET MESSAGE_TEXT = 'Error al consultar el inventario bajo.';
+    END;
+
+    -- Consultar productos con stock igual o inferior al mínimo
+    SELECT id_producto, nombre_producto, stock
+    FROM productos
+    WHERE stock <= p_min_stock; -- Filtrar productos por stock
+END //
+DELIMITER ;
