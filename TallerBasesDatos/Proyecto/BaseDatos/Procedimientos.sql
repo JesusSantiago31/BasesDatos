@@ -101,3 +101,28 @@ BEGIN
     WHERE stock <= p_min_stock; -- Filtrar productos por stock
 END //
 DELIMITER ;
+
+
+-- 4. Incrementar puntos de un cliente tras una venta
+DELIMITER //
+CREATE PROCEDURE IncrementarPuntosCliente(
+    IN p_id_cliente INT, -- ID del cliente al que se le incrementarán los puntos
+    IN p_total DECIMAL(10,2) -- Total de la venta para calcular puntos
+)
+BEGIN
+    -- Manejar excepciones SQL
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+    BEGIN
+        SIGNAL SQLSTATE '45000' -- Generar un error personalizado
+        SET MESSAGE_TEXT = 'Error al incrementar los puntos del cliente.';
+    END;
+
+    DECLARE puntos INT; -- Variable para almacenar los puntos a incrementar
+    SET puntos = FLOOR(p_total / 10); -- Calcular puntos (1 punto por cada 10 del total)
+    -- Actualizar los puntos acumulados en la tarjeta de puntos del cliente
+    UPDATE tarjeta_puntos
+    SET puntos_acumulados = puntos_acumulados + puntos,
+        fecha_ultima_actualizacion = CURRENT_DATE -- Actualizar fecha
+    WHERE id_cliente = p_id_cliente; -- Filtrar por ID del cliente
+END //
+DELIMITER ;
