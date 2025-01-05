@@ -126,3 +126,37 @@ BEGIN
     WHERE id_cliente = p_id_cliente; -- Filtrar por ID del cliente
 END //
 DELIMITER ;
+
+
+-- 5. Aplicar un descuento usando puntos del cliente
+DELIMITER //
+CREATE PROCEDURE AplicarDescuentoConPuntos(
+    IN p_id_cliente INT, -- ID del cliente que aplica el descuento
+    INOUT p_total DECIMAL(10,2) -- Total de la venta a modificar
+)
+BEGIN
+    -- Manejar excepciones SQL
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+    BEGIN
+        SIGNAL SQLSTATE '45000' -- Generar un error personalizado
+        SET MESSAGE_TEXT = 'Error al aplicar el descuento usando puntos.';
+    END;
+
+    DECLARE puntos_usados INT; -- Variable para almacenar los puntos utilizados
+    -- Obtener los puntos acumulados del cliente
+    SELECT puntos_acumulados INTO puntos_usados
+    FROM tarjeta_puntos
+    WHERE id_cliente = p_id_cliente;
+
+    IF puntos_usados > 0 THEN -- Verificar si el cliente tiene puntos
+        SET p_total = p_total - (puntos_usados * 0.1); -- Aplicar descuento
+        IF p_total < 0 THEN -- Evitar totales negativos
+            SET p_total = 0; -- Establecer total en 0 si es negativo
+        END IF;
+        -- Reiniciar puntos acumulados a 0 después de usarlos
+        UPDATE tarjeta_puntos
+        SET puntos_acumulados = 0
+        WHERE id_cliente = p_id_cliente; -- Filtrar por ID del cliente
+    END IF;
+END //
+DELIMITER ;
