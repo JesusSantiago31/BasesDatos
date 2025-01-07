@@ -18,3 +18,19 @@ BEGIN
     WHERE id_cliente = (SELECT id_cliente FROM ventas WHERE id_venta = NEW.id_venta); -- Filtrar por cliente de la venta
 END //
 DELIMITER ;
+
+
+-- 2. Trigger para restablecer puntos acumulados a cero al aplicar descuento
+DELIMITER //
+CREATE TRIGGER RestablecerPuntosTrasDescuento
+BEFORE UPDATE ON tarjeta_puntos -- Se activa antes de actualizar la tarjeta de puntos
+FOR EACH ROW
+BEGIN
+    -- Verificar si se están usando puntos para aplicar descuento
+    IF NEW.puntos_acumulados = 0 AND OLD.puntos_acumulados > 0 THEN
+        SET NEW.puntos_acumulados = 0; -- Restablecer puntos a cero
+    END IF;
+END //
+DELIMITER ;
+
+DELIMITER //
