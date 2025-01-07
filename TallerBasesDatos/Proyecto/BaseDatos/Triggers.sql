@@ -34,3 +34,22 @@ END //
 DELIMITER ;
 
 DELIMITER //
+CREATE TRIGGER VerificarTarjetaPuntosAntesDeInsertar
+BEFORE INSERT ON tarjeta_puntos -- Se activa antes de insertar en la tabla tarjeta_puntos
+FOR EACH ROW
+BEGIN
+    DECLARE existe INT; -- Variable para verificar la existencia
+
+    -- Verificar si ya existe una tarjeta de puntos para el cliente
+    SELECT COUNT(*) INTO existe
+    FROM tarjeta_puntos
+    WHERE id_cliente = NEW.id_cliente; -- Filtrar por ID del cliente de la nueva tarjeta
+
+    -- Si existe, generar un error y evitar la inserción
+    IF existe > 0 THEN
+        SIGNAL SQLSTATE '45000' -- Generar un error personalizado
+        SET MESSAGE_TEXT = 'El cliente ya tiene una tarjeta de puntos.';
+    END IF;
+END //
+
+DELIMITER ;
