@@ -1,0 +1,122 @@
+/* Estilos Generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Título */
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Subtítulo */
+h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Información del cliente */
+p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Estilo para los labels */
+label {
+    margin-bottom: 8px;
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* Estilo para los campos de entrada */
+input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Estilo del botón */
+button {
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Mensajes de error y éxito */
+.success-message {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: green;
+}
+
+.error-message {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: red;
+}
+
+/* Estilo del perfil */
+.profile-info {
+    margin-bottom: 30px;
+}
+
+.profile-info p {
+    font-size: 18px;
+    color: #444;
+}
