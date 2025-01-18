@@ -1,0 +1,102 @@
+/* Estilos Generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fc;
+    background-image: url('img/FondoPrincipal.jpeg'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #701b1b;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    backdrop-filter: blur(10px); /* Añade un efecto de desenfoque para hacer que el contenedor destaque más */
+}
+
+/* Título */
+h1 {
+    font-size: 24px;
+    color: #e7c41a;
+    margin-bottom: 30px;
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para los labels */
+label {
+    margin-bottom: 8px;
+    text-align: left;
+    font-weight: bold;
+    color: #cab429;
+}
+
+/* Estilo para los campos de entrada */
+input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #dde02a;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #c6a41d;
+    outline: none;
+}
+
+/* Estilo del botón */
+button {
+    padding: 12px;
+    background-color: #d7cb28;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #948307;
+}
+
+/* Mensaje de error */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Enlace de registro */
+p {
+    font-size: 14px;
+    color: #b05858;
+}
+
+p a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
