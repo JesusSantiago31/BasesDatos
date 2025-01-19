@@ -1,0 +1,138 @@
+/* Estilos Generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('img/productos.jpeg'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #e7bc46;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Títulos */
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo para los labels */
+label {
+    margin-bottom: 8px;
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+    width: 100%;
+    text-align: left;
+}
+
+/* Estilo para los campos de entrada */
+input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #ffd900;
+    outline: none;
+}
+
+/* Estilo del botón */
+button {
+    padding: 12px;
+    background-color: #ffdd00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover {
+    background-color: #00b31b;
+}
+
+/* Mensajes de error y éxito */
+.error-message, .success-message {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.error-message {
+    color: red;
+}
+
+.success-message {
+    color: green;
+}
+
+/* Botón de regreso */
+button[type="button"] {
+    background-color: #ccc;
+    margin-top: 15px;
+}
+
+button[type="button"]:hover {
+    background-color: #aaa;
+}
+/* Estilo para el mensaje de error */
+.error-message {
+    background-color: #f44336; /* Rojo */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+/* Estilo para el mensaje de éxito */
+.success-message {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
