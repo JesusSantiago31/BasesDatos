@@ -1,0 +1,108 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    background-image: url('img/clientes.jpeg'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #dfbb0a;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h1 {
+    color: #333;
+    text-align: center;
+}
+/* Contenedor de tabla con desplazamiento vertical */
+.tabla-contenedor {
+    width: 100%;              /* Ajusta al 100% del contenedor padre */
+    height: 400px;            /* Establece una altura fija para el contenedor */
+    overflow-y: auto;         /* Habilita el desplazamiento vertical */
+    margin-top: 20px;
+    border: 1px solid #ddd;   /* Borde alrededor del contenedor */
+    border-radius: 5px;
+    background-color: white;  /* Fondo blanco para que sea más visible */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Tabla */
+table {
+    width: 100%;              /* Establecer el 100% de ancho */
+    min-width: 800px;         /* Establecer un ancho mínimo para la tabla */
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #6c757d;
+    color: white;
+    font-size: 1.1rem;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilo para los enlaces de acción */
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Botones */
+button {
+    background-color: #af8e4c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #a08645;
+}
+
+/* Formulario */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Enlaces de acción */
+button, a {
+    margin-top: 20px;
+    display: inline-block;
+}
