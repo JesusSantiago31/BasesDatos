@@ -27,7 +27,11 @@ Finalmente para la ejecución de la base de datos se empleó:
 * PhpMyAdmin
 
 ## Autores
+A continuacion se adjuntan los integrantes del equipo que participarón en la elaboración del proyecto, con los perfiles de GitHub correspondiente.
 
-* Jesus Silvestre Santiago Cruz 
+* [Jesus Silvestre Santiago Cruz](https://github.com/JesusSantiago31) 
 * [Jocelin Reyes Rodriguez](https://github.com/JocelinReyes)
-* Shania Kinnereth Diaz Moya
+* [Shania Kinnereth Diaz Moya](https://github.com/ShaniaKinnerethDiazMoya)
+* [Brandon Mendoza Castillo](https://github.com/Brandon-Mendoza-Castillo)
+
+| Proyecto Elaborado en el Tecnológico de Estudios Superiores de Jilotepec | Taller de Base de Datos | 5 Semestre
