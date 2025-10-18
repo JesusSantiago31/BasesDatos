@@ -26,3 +26,23 @@ SELECT f.title, c.name AS category_name
   ON fc.category_id = c.category_id
   WHERE c.name = "Comedy";
 ```
+
+### FULL OUTTER JOIN (Union Externa Completa )
+
+La UNIÓN EXTERNA COMPLETA combina filas de ambas tablas y devuelve todos los registros cuando hay una coincidencia en cualquiera de ellas. Incluye filas con valores coincidentes y filas no coincidentes de ambas tablas, lo que garantiza que no se pierdan datos por la ausencia de un atributo común.
+
+#### SQL Sintaxis
+```sql
+SELECT columns
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column1 = table2.column2;
+```
+
+#### Ejemplo
+```sql
+SELECT Customers.customer_id, Customers.name, Orders.order_id, Orders.spend
+FROM Customers
+FULL OUTER JOIN Orders
+ON Customers.customer_id = Orders.customer_id;
+```
