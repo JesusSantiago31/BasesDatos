@@ -46,3 +46,22 @@ FROM Customers
 FULL OUTER JOIN Orders
 ON Customers.customer_id = Orders.customer_id;
 ```
+
+### LEFT JOIN
+LEFT JOIN devuelve todas las filas de la tabla izquierda y las filas coincidentes de la tabla derecha . Si no existen coincidencias, el resultado es NULL de la tabla derecha. Esto garantiza que se incluyan todos los datos de la tabla izquierda, independientemente de las coincidencias.
+
+#### SQL Sintaxis
+```sql
+SELECT columns_from_both_tables
+FROM table1
+LEFT JOIN table2
+ON table1.column1 = table2.column2
+```
+
+#### Ejemplo
+```sql
+SELECT Customers.customer_id, Customers.name, Orders.order_id, Orders.spend
+FROM Customers
+LEFT JOIN Orders
+ON Customers.customer_id = Orders.customer_id;
+```
