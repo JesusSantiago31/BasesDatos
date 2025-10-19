@@ -85,3 +85,21 @@ FROM Orders
 RIGHT JOIN Customers
 ON Orders.customer_id = Customers.customer_id;
 ```
+
+### CROSS JOIN (Unión Cruzada)
+
+CROSS JOIN devuelve el producto cartesiano de dos tablas , combinando cada fila de la primera tabla con cada fila de la segunda. Esto genera un conjunto de datos donde el número total de filas es el producto del número de filas de ambas tablas.
+
+#### Sintaxis SQL
+```sql
+SELECT columns_from_both_tables
+FROM table1
+CROSS JOIN table2;
+```
+
+#### Ejemplo 
+```sql
+SELECT Products.product_id, Categories.price
+FROM Products
+CROSS JOIN Categories;
+```
