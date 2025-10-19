@@ -65,3 +65,23 @@ FROM Customers
 LEFT JOIN Orders
 ON Customers.customer_id = Orders.customer_id;
 ```
+
+### RIGHT JOIN (Unión a la derecha)
+
+RIGHT JOIN devuelve todas las filas de la tabla derecha y las filas coincidentes de la tabla izquierda . Si no hay coincidencias, el resultado es NULL de la tabla izquierda. Esto garantiza que se incluyan todos los datos de la tabla derecha, independientemente de las coincidencias.
+
+#### Sintaxis SQL
+```sql
+SELECT columns_from_both_tables
+FROM table1
+RIGHT JOIN table2
+ON table1.column1 = table2.column2;
+```
+
+#### Ejemplo
+```sql
+SELECT Orders.order_id, Orders.spend, Customers.customer_id, Customers.name
+FROM Orders
+RIGHT JOIN Customers
+ON Orders.customer_id = Customers.customer_id;
+```
